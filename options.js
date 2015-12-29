@@ -2,7 +2,6 @@
 function save_options() {
   var host = document.getElementById('host').value;
   var port = document.getElementById('port').value;
-  console.log("Save " + host);
   chrome.storage.sync.set({
     host: host,
     port: port
@@ -28,6 +27,5 @@ function restore_options() {
     document.getElementById('port').value = items.port;
   });
 }
-alert("Hello");
 document.addEventListener('DOMContentLoaded', restore_options)
 document.getElementById('save').addEventListener('click', save_options);
