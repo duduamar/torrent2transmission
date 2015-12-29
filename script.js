@@ -1,6 +1,13 @@
 function onClickHandler(info, tab) {
-	alert("Link: " + info.linkUrl);
-	console.log("Clicked on link " + info.linkUrl);
+	var link = info.linkUrl;
+	chrome.storage.sync.get({
+		host: 'localhost',
+		port: '9091'
+	}, function(items) {
+		var host = items.host;
+		var port = items.port;
+		alert("Link: " + info.linkUrl + " Host: " + host);
+	});
 };
 
 chrome.contextMenus.onClicked.addListener(onClickHandler);

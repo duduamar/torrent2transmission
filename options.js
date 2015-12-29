@@ -11,7 +11,8 @@ function save_options() {
     status.textContent = 'Options saved.';
     setTimeout(function() {
       status.textContent = '';
-    }, 750);
+	  window.close();
+    }, 1000);
   });
 }
 
@@ -20,7 +21,7 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    host: '',
+    host: 'localhost',
     port: '9091'
   }, function(items) {
     document.getElementById('host').value = items.host;
