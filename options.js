@@ -2,9 +2,13 @@
 function save_options() {
   var host = document.getElementById('host').value;
   var port = document.getElementById('port').value;
+  var user = document.getElementById('user').value;
+  var pswd = document.getElementById('pswd').value;
   chrome.storage.sync.set({
     host: host,
-    port: port
+    port: port,
+	user: user,
+	pswd: pswd
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -22,10 +26,14 @@ function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
     host: 'localhost',
-    port: '9091'
+    port: '9091',
+	user: '',
+	pswd: ''
   }, function(items) {
     document.getElementById('host').value = items.host;
     document.getElementById('port').value = items.port;
+	document.getElementById('user').value = items.user;
+	document.getElementById('pswd').value = items.pswd;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options)

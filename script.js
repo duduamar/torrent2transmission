@@ -2,11 +2,15 @@ function onClickHandler(info, tab) {
 	var link = info.linkUrl;
 	chrome.storage.sync.get({
 		host: 'localhost',
-		port: '9091'
+		port: '9091',
+		user: '',
+		pswd: ''
 	}, function(items) {
 		var host = items.host;
 		var port = items.port;
-		alert("Link: " + info.linkUrl + " Host: " + host);
+		var user = items.user;
+		var pswd = items.pswd;
+		alert("Link: " + info.linkUrl + JSON.stringify(items, null, 2));
 	});
 };
 
