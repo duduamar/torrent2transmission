@@ -4,7 +4,7 @@
 	"description": "Adds a torrent from magnet link to Transmission daemon",
 	"version": "0.1",
 	"minimum_chrome_version": "40",
-	"permissions": ["contextMenus","storage", "http://*/", "file://*/"],
+	"permissions": ["contextMenus","storage", "http://*/", "file://*/", "notifications"],
 	"background": {
 		"persistent": false,
 		"scripts": ["jquery-2.1.4.min.js","script.js"]

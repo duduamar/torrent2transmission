@@ -38,7 +38,14 @@ function sendToTransmission(link, loginData) {
 		headers["X-Transmission-Session-Id"] = sessionID;
 		$.ajax(ajaxProps)
 		.done (function (res) {
-			alert ("Success!");
+			//alert ("Success!");
+			var opt = {
+			  type: "basic",
+			  title: "Torrent2Transmission",
+			  message: "Successfully added torrent",
+			  iconUrl: "icon128.png"
+			};
+			chrome.notifications.create(opt);
 		}).fail(function (err) {
 			handleError("Failed to send the actual POST request",err);
 		});
@@ -65,5 +72,6 @@ chrome.runtime.onInstalled.addListener(function() {
 		"title": "Add to Transmission", 
 		"contexts":["link"],
 		"id": "AddToTransmission",
+		"targetUrlPatterns" : ["magnet:*"]
 	});
 });
