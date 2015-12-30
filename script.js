@@ -31,13 +31,10 @@ function sendToTransmission(link, loginData) {
 		handleError("Should not succeed to send POST without session ID!", res);
 	}).fail(function (err) {
 		if (err.status != 409) {
-			var msg = "Did not get the expected 409 response!";
-			handleError(msg,err);
+			handleError("Did not get the expected 409 response!",err);
 			return;
 		}
 		var sessionID = err.getResponseHeader("X-Transmission-Session-Id");
-		console.dir(err);
-		console.log(sessionID);
 		headers["X-Transmission-Session-Id"] = sessionID;
 		$.ajax(ajaxProps)
 		.done (function (res) {
@@ -56,10 +53,6 @@ function onClickHandler(info, tab) {
 		user: '',
 		pswd: ''
 	}, function(items) {
-		var host = items.host;
-		var port = items.port;
-		var user = items.user;
-		var pswd = items.pswd;
 		sendToTransmission(info.linkUrl, items);
 	});
 };
