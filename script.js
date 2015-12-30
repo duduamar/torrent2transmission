@@ -38,7 +38,6 @@ function sendToTransmission(link, loginData) {
 		headers["X-Transmission-Session-Id"] = sessionID;
 		$.ajax(ajaxProps)
 		.done (function (res) {
-			//alert ("Success!");
 			var opt = {
 			  type: "basic",
 			  title: "Torrent2Transmission",
