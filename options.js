@@ -17,7 +17,6 @@ function save_options() {
 }
 
 function restore_options() {
-
   chrome.storage.sync.get({
     host: 'localhost',
     port: '9091',
