@@ -3,10 +3,11 @@
 	"name": "Torrent2Transmission",
 	"description": "Adds a torrent from magnet link to Transmission daemon",
 	"version": "0.1",
-	"permissions": ["contextMenus","storage"],
+	"minimum_chrome_version": "40",
+	"permissions": ["contextMenus","storage", "http://*/", "file://*/"],
 	"background": {
-	"persistent": false,
-	"scripts": ["script.js"]
+		"persistent": false,
+		"scripts": ["jquery-2.1.4.min.js","script.js"]
 	},
 	"icons": { 
 		"16": "icon16.png",

@@ -1,14 +1,10 @@
 // Saves options to chrome.storage.sync.
 function save_options() {
-  var host = document.getElementById('host').value;
-  var port = document.getElementById('port').value;
-  var user = document.getElementById('user').value;
-  var pswd = document.getElementById('pswd').value;
   chrome.storage.sync.set({
-    host: host,
-    port: port,
-	user: user,
-	pswd: pswd
+    host: document.getElementById('host').value,
+    port: document.getElementById('port').value,
+	user: document.getElementById('user').value,
+	pswd: document.getElementById('pswd').value
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -20,10 +16,8 @@ function save_options() {
   });
 }
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
+
   chrome.storage.sync.get({
     host: 'localhost',
     port: '9091',
